@@ -135,12 +135,20 @@ function byronwade_com_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'byronwade_com_widgets_init' );
+// Or just remove them all in one line
+add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 /**
  * Enqueue scripts and styles.
  */
 function byronwade_com_scripts() {
 	wp_enqueue_style( 'byronwade-com-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'bluma', get_template_directory_uri() . '/css/bulma.css' );
+	wp_enqueue_style( 'bwwd', get_template_directory_uri() . '/css/bwwd.css' );
+
+   # WOOCOMMERCE NEW STYLES #
+	wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/css/woocommerce/woocommerce.css' );
+
 	wp_style_add_data( 'byronwade-com-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'byronwade-com-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
