@@ -48,6 +48,9 @@ if ( ! function_exists( 'byronwade_com_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
+		
+
+		require_once('navwalker.php');
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'byronwade-com' ),

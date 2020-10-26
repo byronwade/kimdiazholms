@@ -25,43 +25,30 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'byronwade-com' ); ?></a>
 
-
-	<nav class="navbar" role="navigation" aria-label="main navigation">
-		<div class="navbar-brand">
-			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-			<span aria-hidden="true"></span>
-			<span aria-hidden="true"></span>
-			<span aria-hidden="true"></span>
-			</a>
-		</div>
-
-		<div id="navbarBasicExample" class="navbar-menu">
-			<div class="navbar-end">
-				<div class="navbar-item">
-					<a class="navbar-item">Home</a>
-					<a class="navbar-item">Documentation</a>
-					<div class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">More</a>
-						<div class="navbar-dropdown">
-							<a class="navbar-item">About</a>
-							<a class="navbar-item">Jobs</a>
-							<a class="navbar-item">Contact</a>
-							<hr class="navbar-divider">
-							<a class="navbar-item">Report an issue</a>
-						</div>
-					</div>
-					<a class="navbar-item">Home</a>
-					<a class="navbar-item">Home</a>
-				</div>
-			</div>
-
-		</div>
-	</nav>
-
 	<header id="masthead" class="site-header">
-
-		<nav id="site-navigation" class="main-navigation">
-			<?php wp_nav_menu(array('theme_location' => 'menu-1', 'menu_id' => 'primary-menu',)); ?>
-		</nav><!-- #site-navigation -->
-
+		<div>
+			<nav class="navbar container" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+					<button class="button navbar-burger" data-target="primary-menu">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
+				<div class="navbar-end">
+					<?php
+					wp_nav_menu( array(
+						'theme_location'    => 'menu-1',
+						'depth'             => 2,
+						'container'         => false,
+						// 'items_wrap'     => 'div',
+						'menu_class'        => 'navbar-menu',
+						'menu_id'           => 'primary-menu',
+						'after'             => "</div>",
+						'walker'            => new Navwalker())
+					);
+					?>
+				</div>
+			</nav>
+		</div>
 	</header><!-- #masthead -->
