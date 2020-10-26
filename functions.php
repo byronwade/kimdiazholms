@@ -186,3 +186,27 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Our custom post type function
+function all_postypes() {
+
+	register_post_type( 'Portfolio',
+	// CPT Options
+		array(
+			'labels' => array(
+				'name' => __( 'Portfolio' ),
+				'singular_name' => __( 'Portfolio' )
+			),
+			'public' => true,
+			'has_archive' => false,
+			'rewrite' => array('slug' => 'portfolio'),
+			'show_in_rest' => true,
+			'can_export' => true,
+			'supports' => array( 'title', 'excerpt', 'thumbnail', 'custom-fields', ),
+			'taxonomies' => array( 'post_tag' ),
+
+		)
+	);
+
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'all_postypes' );
