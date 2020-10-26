@@ -149,8 +149,11 @@ function byronwade_com_scripts() {
 	wp_enqueue_style( 'bluma', get_template_directory_uri() . '/css/bulma.css' );
 	wp_enqueue_style( 'bwwd', get_template_directory_uri() . '/css/bwwd.css' );
 
-   # WOOCOMMERCE NEW STYLES #
+    # WOOCOMMERCE NEW STYLES #
 	wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/css/woocommerce/woocommerce.css' );
+
+	# FONTAWSOME #
+	wp_enqueue_script('font-awesome','//use.fontawesome.com/releases/v5.0.13/js/all.js',null,null,true);
 
 	wp_style_add_data( 'byronwade-com-style', 'rtl', 'replace' );
 

@@ -13,7 +13,7 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<span>Made with love by <a href="https://www.byronwade.com">Byron Wades Web Development</a></span>
+			<span>Made with <i class="fas fa-heart"></i> by <a href="https://www.byronwade.com">Byron Wades Web Development</a></span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
