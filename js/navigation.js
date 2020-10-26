@@ -1,5 +1,5 @@
 
-(function($){
+jQuery(document).ready(function($){
 	$(document).ready(function() {
 		$(".navbar-burger").click(function() {
 
@@ -9,4 +9,4 @@
 
 		});
 	});
-})(jQuery);
+});
