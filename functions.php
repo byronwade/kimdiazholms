@@ -148,10 +148,6 @@ function byronwade_com_scripts() {
 	wp_enqueue_style( 'byronwade-com-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style( 'bluma', get_template_directory_uri() . '/css/bulma.css' );
 	wp_enqueue_style( 'bwwd', get_template_directory_uri() . '/css/bwwd.css' );
-
-    # WOOCOMMERCE NEW STYLES #
-	wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/css/woocommerce/woocommerce.css' );
-
 	# FONTAWSOME #
 	wp_enqueue_script('font-awesome','//use.fontawesome.com/releases/v5.0.13/js/all.js',null,null,true);
 
@@ -207,7 +203,25 @@ function all_postypes() {
 			'rewrite' => array('slug' => 'portfolio'),
 			'show_in_rest' => true,
 			'can_export' => true,
-			'supports' => array( 'title', 'excerpt', 'thumbnail', 'custom-fields', ),
+			'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields', ),
+			'taxonomies' => array( 'post_tag' ),
+
+		)
+	);
+
+	register_post_type( 'Case Studies',
+	// CPT Options
+		array(
+			'labels' => array(
+				'name' => __( 'Case Studies' ),
+				'singular_name' => __( 'Case Studies' )
+			),
+			'public' => true,
+			'has_archive' => false,
+			'rewrite' => array('slug' => 'case-studies'),
+			'show_in_rest' => true,
+			'can_export' => true,
+			'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields', ),
 			'taxonomies' => array( 'post_tag' ),
 
 		)
@@ -216,3 +230,15 @@ function all_postypes() {
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'all_postypes' );
+
+
+add_filter('wp_nav_menu', 'my_wp_nav_menu', 10, 2);
+function my_wp_nav_menu( $items, $args ) {
+	$menu = wp_get_nav_menu_object($args->menu);
+	if( $args->theme_location == 'menu-1' ) {
+		$html_phone = '<div class="phone">P: '.get_field('phone_number', $menu).'</div>';
+		$html_email = '<div class="email">E: '.get_field('email', $menu).'</div>';
+		$items = $html_phone . $html_email . $items;
+	}
+	return $items;
+}

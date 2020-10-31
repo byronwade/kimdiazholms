@@ -23,12 +23,14 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'byronwade-com' ); ?></a>
-
 	<header id="masthead" class="site-header">
 		<div>
 			<nav class="navbar container" role="navigation" aria-label="main navigation">
 				<div class="navbar-brand">
+					<div>
+						<div class="phone">P: 831.430.6011</div>
+						<div class="email">E: bcw1995@gmail.com</div>
+					</div>
 					<button class="button navbar-burger" data-target="primary-menu">
 						<span></span>
 						<span></span>
